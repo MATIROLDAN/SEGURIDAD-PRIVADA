@@ -109,7 +109,9 @@ function calcularSueldo()
    document.getElementById("sueldo_neto").value = sueldoNeto;
 
    // Calculate net aguinaldo (50% of gross salary minus discount)
-   const aguinaldoBruto = parseFloat(sueldoBrutoValue) / 2;
+   // Calculate aguinaldo based on remunerative components only (excluding viatico)
+   const aguinaldoBase = (sueldoCategoria + parseFloat(sueldoAntiguedad) + parseFloat(sueldoFeriado) + parseFloat(sueldoal50) + parseFloat(sueldoal100) + presentismoCategoria + adicionalremunerativoCategoria + (sueldoCategoria + parseFloat(sueldoAntiguedad)) * 0.1 / 100 * parseFloat(horasNocturnas.value || 0));
+   const aguinaldoBruto = aguinaldoBase / 2;
    const descuentoAguinaldo = (sindicato === "si" ? 0.20 : 0.17) * aguinaldoBruto;
    const aguinaldoNeto = (aguinaldoBruto - descuentoAguinaldo).toFixed(2);
 
