@@ -6,10 +6,16 @@
     padding: 0;
 }
 html{
-
     /* me permite deslizar cuando hago clic en los links del menu */
     scroll-behavior: smooth;
+    background-color: #121212; /* Añade o asegura este color de fondo para todo el html */
 }
+
+body {
+    background-color: #121212; /* Añade o asegura este color de fondo para todo el body */
+    color: #fff; /* Asegura que el texto por defecto sea blanco */
+}
+
 /* MENU */
 .contenedor-header{
     background: #a10d14;
@@ -56,6 +62,7 @@ html{
     cursor: pointer;
     display: none;
 }
+
 /* SECCION I N I C I O */
 .inicio{
     background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
@@ -141,7 +148,8 @@ html{
 .info p {
   margin-bottom: 20px;
 }
-/* --- SECCIÓN NOVEDADES --- */
+
+/* --- SECCIÓN NOVEDADES CORREGIDA --- */
 .Novedades {
     margin-top: 80px;
     padding: 3rem 0;
@@ -221,13 +229,22 @@ html{
     text-align: center;
 }
 
+/* CORRECCIÓN PARA LAS IMÁGENES */
 .documento-item img {
     width: 100%;
-    height: auto;
+    height: 300px; /* Altura fija para mantener proporción */
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
     border-radius: 8px;
     cursor: pointer;
     transition: opacity 0.3s ease;
     border: 2px solid #e9ecef;
+    display: block; /* Asegura que no haya espacios extraños */
+}
+
+/* Alternativa si prefieres que se vea toda la imagen sin recortar */
+.documento-item img.contain {
+    object-fit: contain; /* Muestra toda la imagen, puede dejar espacios vacíos */
+    background-color: #f8f9fa; /* Color de fondo para los espacios vacíos */
 }
 
 .documento-item img:hover {
@@ -321,81 +338,79 @@ html{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-/* SECCION CURRICULUM */
+
+/* SECCION CALCULADORA */
 .Calculadora{
      padding-top: 100px; /* Añadido o ajustado */
      background-color: #1e2326;
      color: #fff;
- 
-    body {
-      font-family: Arial, sans-serif;
-       background-color: #FFFFFF;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #1e2326;
-      border-radius: 10px;
-    }
-
-    h2 {
-       color: #FFFFFF;
-    }
-
-    label {
-      display: inline-block;
-      width: 150px;
-      text-align: right;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    input[type="text"] {
-      width: 200px;
-      padding: 5px;
-      margin-bottom: 10px;
-    }
-
-    select {
-      width: 220px;
-      padding: 5px;
-      margin-bottom: 10px;
-    }
-
-    .result-label {
-      color: #FFFFFF;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
-    .result-value {
-      background-color: #FFFFFF;
-      border: none;
-      width: 200px;
-      padding: 5px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    button {
-      background-color: #216297;
-      color: #FFFFFF;
-      border: none;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-  
 }
-/* SECCION PORTFOLIO */
-/* ... (otros estilos existentes) ... */
+
+.Calculadora body {
+  font-family: Arial, sans-serif;
+   background-color: #FFFFFF;
+  text-align: center;
+}
+
+.Calculadora .container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1e2326;
+  border-radius: 10px;
+}
+
+.Calculadora h2 {
+   color: #FFFFFF;
+}
+
+.Calculadora label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.Calculadora input[type="text"] {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.Calculadora select {
+  width: 220px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.Calculadora .result-label {
+  color: #FFFFFF;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.Calculadora .result-value {
+  background-color: #FFFFFF;
+  border: none;
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.Calculadora button {
+  background-color: #216297;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
 
 /* SECCION ESCALA */
 .Escala {
@@ -505,7 +520,39 @@ html{
     margin-bottom: 20px;
 }
 
-/* MEDIA QUERIES para responsividad (revisados) */
+/* SECCION NOSOTROS */
+.nosotros{
+    padding-top: 100px; /* Añadido o ajustado */
+    background-color: #121212; 
+    color: #fff;
+    text-align: center;
+}
+
+.nosotros .contenido-seccion{
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+.nosotros h2{
+    font-size: 48px;
+    font-family: 'Righteous';
+    text-align: center;
+    padding: 20px 0;
+    color: #d3dbd8; /* Color verde de tu logo */
+}
+.nosotros p{
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    text-align: justify; /* Texto justificado para una mejor lectura */
+}
+/* Opcional: para el primer párrafo, si quieres un énfasis */
+.nosotros p span{
+    color: #e1ebe9;
+    font-weight: bold;
+}
+
+/* MEDIA QUERIES para responsividad */
 @media screen and (max-width:980px){
     nav{
         display: none;
@@ -538,6 +585,22 @@ html{
     }
 }
 
+@media screen and (max-width:768px){
+    /* Media queries para Novedades responsive */
+    .galeria-documentos {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: 1rem;
+    }
+    
+    .documento-item {
+        padding: 1rem;
+    }
+    
+    .documento-item img {
+        height: 250px; /* Altura menor en móviles */
+    }
+}
+
 @media screen and (max-width:700px){
     /* Ajustes adicionales para móviles pequeños */
     .Escala h2 {
@@ -560,70 +623,7 @@ html{
     .tabla-antiguedad-vigilador-general-container h2 {
         font-size: 24px;
     }
-}
-
-/* Asegura que el color de fondo del body sea consistente */
-body {
-    background-color: #121212;
-    color: #fff;
-    /* otras propiedades del body si las tienes */
-}
-
-
-/* Y si tienes un media query para 980px, revisa también */
-@media screen and (max-width:980px){
-    /* ... (otros estilos responsivos) ... */
-    .Escala, .Novedades, .Calculadora, .nosotros, .inicio {
-        padding-top: 90px; /* Asegúrate que el padding también esté aquí */
-    }
-}
-
-/* SECCION NOSOTROS */
-.nosotros{
-    padding-top: 100px; /* Añadido o ajustado */
-    background-color: #121212; 
-    color: #fff;
-    text-align: center;
-}
-/* Esto ya lo tenías, pero es bueno asegurarlo */
-html {
-    /* me permite deslizar cuando hago clic en los links del menu */
-    scroll-behavior: smooth;
-    background-color: #121212; /* Añade o asegura este color de fondo para todo el html */
-}
-
-body {
-    /* Esto ya lo tenías, asegúrate que no tenga un background-color blanco */
-    background-color: #121212; /* Añade o asegura este color de fondo para todo el body */
-    color: #fff; /* Asegura que el texto por defecto sea blanco */
-    /* ... otros estilos del body ... */
-}
-.nosotros .contenido-seccion{
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
-.nosotros h2{
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-    color: #d3dbd8; /* Color verde de tu logo */
-}
-.nosotros p{
-    font-size: 18px;
-    line-height: 28px;
-    margin-bottom: 20px;
-    text-align: justify; /* Texto justificado para una mejor lectura */
-}
-/* Opcional: para el primer párrafo, si quieres un énfasis */
-.nosotros p span{
-    color: #e1ebe9;
-    font-weight: bold;
-}
-
-/* Para dispositivos más pequeños, para que el padding y texto se ajusten */
-@media screen and (max-width:700px){}
+    
     .nosotros .contenido-seccion{
         padding: 0 10px;
     }
@@ -631,31 +631,6 @@ body {
         font-size: 38px;
     }
 
-/* SECCION RESPONSIVE */
-@media screen and (max-width:980px){
-    nav{
-        display: none;
-    }
-    .nav-responsive{
-        display: block;
-    }
-    nav.responsive{
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 75px;
-        background-color: #252A2E;
-        width: 180px;
-    }
-    nav.responsive ul{
-        display: block !important;
-    }
-    nav.responsive ul li{
-        border-bottom: 1px solid #fff;
-        padding: 10px 0;
-    }
-}
-@media screen and (max-width:700px){
     .sobremi .fila{
         display: block;
     }
@@ -688,4 +663,15 @@ body {
     .contacto .fila .col{
         width: 100%;
     }
+}
+
+@media screen and (max-width:480px) {
+    .Novedades .contenido-seccion {
+        padding: 0 1rem;
+    }
+    
+    .documento-item img {
+        height: 200px; /* Altura aún menor en móviles pequeños */
+    }
+}
 }
